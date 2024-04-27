@@ -1,13 +1,16 @@
 import React from "react";
 import Navbar from "./NavBar";
 import TodoList from "./TodoList";
+import TodoContext from "../contexts/TodoContext";
 
 const App = () => {
     return (
-    <div className="uk-container">
-        <Navbar/>
-        <TodoList/>
-    </div>
+    <TodoContext>
+        <div className="uk-container">
+            <Navbar/>
+            <TodoList/>
+        </div>
+    </TodoContext>
     );
 }
 
