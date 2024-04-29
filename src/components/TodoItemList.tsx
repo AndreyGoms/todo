@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Todo } from "../models/Todo";
+import { TodoContextType } from "../contexts/TodoContextType";
+import { TodoContext } from "../contexts/TodoContext";
 
 
 interface ITodoListItemProps {
@@ -7,13 +9,15 @@ interface ITodoListItemProps {
 }
 
 const TodoItemList = (props: ITodoListItemProps) => {
+    //pegado os metodos que há em TodoContextType
+    const { removeTodo, toggle } = useContext<TodoContextType>(TodoContext)
     
-    const handleChange = () => {
-        console.log("mudou")
+    const onRemove = (todo: Todo) => {
+        removeTodo(todo)
     }
 
-    const onRemove = (todo: Todo) => {
-        console.log(todo)
+    const handleChange = () => {
+        toggle(props.todo)
     }
 
     return (
