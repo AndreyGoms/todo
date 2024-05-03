@@ -7,23 +7,27 @@ const TodoList = () => {
     const { todos } = useContext<TodoContextType>(TodoContext);
 
     return (
-        <table className="uk-table">
-            <caption>Lista de tarefas</caption>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tarefa</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <body>
-                {
-                    todos?.map( 
-                        todo => (<TodoItemList key={todo.id} todo={todo}/>)
-                    )
-                }
-            </body>
-        </table>
+        <>            
+            <h4>Minha lista de tarefas</h4>
+            <table className="uk-table">
+                <caption>Lista de tarefas</caption>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tarefa</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <body>
+                    {
+                        todos?.map( 
+                            todo => (<TodoItemList key={todo.id} todo={todo}/>)
+                        )
+                    }
+                </body>
+            </table>
+        </>
+
     );
 }
 
